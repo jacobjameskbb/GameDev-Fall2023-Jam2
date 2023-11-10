@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://b30x24kqugxgr"]
+[gd_scene load_steps=2 format=3 uid="uid://b30x24kqugxgr"]
+
+[ext_resource type="Script" path="res://Menu.gd" id="1_lcm4f"]
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -7,3 +9,53 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_lcm4f")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 331.0
+offset_right = 312.0
+offset_bottom = 558.0
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="_3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Music" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/Music"]
+layout_mode = 2
+text = "Music"
+
+[node name="MusicCheckBox" type="CheckBox" parent="VBoxContainer/Music"]
+layout_mode = 2
+button_pressed = true
+
+[node name="_" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+value = 100.0
+tick_count = 1
+
+[node name="_2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Quit"
+
+[connection signal="button_up" from="VBoxContainer/StartButton" to="." method="_on_start_button_button_up"]
+[connection signal="toggled" from="VBoxContainer/Music/MusicCheckBox" to="." method="_on_music_check_box_toggled"]
+[connection signal="drag_ended" from="VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_drag_ended"]
