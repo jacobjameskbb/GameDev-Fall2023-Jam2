@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b30x24kqugxgr"]
 
-[ext_resource type="Script" path="res://Menu.gd" id="1_lcm4f"]
+[ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_lcm4f"]
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -58,4 +58,4 @@ text = "Quit"
 
 [connection signal="button_up" from="VBoxContainer/StartButton" to="." method="_on_start_button_button_up"]
 [connection signal="toggled" from="VBoxContainer/Music/MusicCheckBox" to="." method="_on_music_check_box_toggled"]
-[connection signal="drag_ended" from="VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_drag_ended"]
+[connection signal="value_changed" from="VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]

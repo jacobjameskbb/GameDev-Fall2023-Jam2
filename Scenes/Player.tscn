@@ -12,5 +12,7 @@ script = ExtResource("1_14f7m")
 shape = SubResource("RectangleShape2D_oulft")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(9, 22)
 texture = ExtResource("2_xdu04")
+
+[node name="joey_spawn" type="Marker2D" parent="."]
+position = Vector2(5, 4)
