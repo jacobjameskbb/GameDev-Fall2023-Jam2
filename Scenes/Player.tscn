@@ -4,11 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://0xar68dbgwim" path="res://Assets/roo.png" id="2_xdu04"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oulft"]
+size = Vector2(14, 23)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_14f7m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 1.5)
 shape = SubResource("RectangleShape2D_oulft")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

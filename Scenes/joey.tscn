@@ -1,11 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1eqoi2ky71m5"]
+[gd_scene load_steps=4 format=3 uid="uid://d1eqoi2ky71m5"]
 
 [ext_resource type="Script" path="res://Scripts/joey.gd" id="1_8jj5l"]
 [ext_resource type="Texture2D" uid="uid://kf2n2plyp5n1" path="res://Assets/joey2.png" id="2_q61o8"]
 
-[node name="joey" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_41rbk"]
+size = Vector2(20, 4)
+
+[node name="joey" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_8jj5l")
 
 [node name="sprite" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)
 texture = ExtResource("2_q61o8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_41rbk")
