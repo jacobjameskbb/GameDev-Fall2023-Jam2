@@ -1,5 +1,6 @@
-extends TileMap
+extends Node2D
 
+var level_speed = 4
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,4 +9,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position.x -= get_parent().level_speed
+	pass
