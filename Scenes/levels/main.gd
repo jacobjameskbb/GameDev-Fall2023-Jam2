@@ -1,6 +1,6 @@
 extends Node2D
 
-var level_speed = 4
+var level_speed = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

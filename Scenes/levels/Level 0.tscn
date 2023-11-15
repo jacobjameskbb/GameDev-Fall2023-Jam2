@@ -163,5 +163,5 @@ layer_2/tile_data = PackedInt32Array()
 script = ExtResource("4_m0oi0")
 
 [node name="MonkeyShooter" parent="." instance=ExtResource("5_a7j64")]
-position = Vector2(2663, 255)
+position = Vector2(623, 319)
 bullet_speed = 30

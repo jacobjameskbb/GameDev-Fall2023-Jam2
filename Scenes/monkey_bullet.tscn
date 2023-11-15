@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlgtfo0n5ydkd"]
+[gd_scene load_steps=4 format=3 uid="uid://dpt07icscar4e"]
 
 [ext_resource type="Texture2D" uid="uid://bqxk3emi0ncpx" path="res://Assets/monkey bullet.png" id="1_r5dhl"]
 [ext_resource type="Script" path="res://Scenes/monkey_bullet.gd" id="1_rsy08"]
@@ -7,6 +7,7 @@
 size = Vector2(2, 5)
 
 [node name="monkey_bullet" type="CharacterBody2D"]
+z_index = -1
 position = Vector2(432, 298)
 scale = Vector2(4, 4)
 collision_layer = 0

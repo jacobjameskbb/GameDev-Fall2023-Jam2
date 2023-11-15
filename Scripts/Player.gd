@@ -25,8 +25,11 @@ func _physics_process(delta):
 		if cooldown_number == 0:
 			spawn_joey()
 			cooldown_number = cooldown
-		else:
+		elif not Input.is_action_just_pressed('fire'):
 			cooldown_number -= 1
+		else: spawn_joey()
+			
+
 	move_and_slide()
 
 func spawn_joey():
