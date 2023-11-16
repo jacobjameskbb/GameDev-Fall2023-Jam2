@@ -35,7 +35,7 @@ func _process(delta):
 			new_bullet.rotation_degrees = $barrel.rotation_degrees
 			new_bullet.speed = bullet_speed
 	elif dead:
-		$monkey.position.y -= vel_y
+		$monkey.position.y -= vel_y * delta * 100
 		vel_y -= gravity
 
 func _on_area_2d_body_entered(body):
