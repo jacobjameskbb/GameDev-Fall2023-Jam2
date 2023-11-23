@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dykyhu30a83do"]
+[gd_scene load_steps=6 format=3 uid="uid://i6rn7y8dqid6"]
 
 [ext_resource type="Script" path="res://Scenes/levels/MonkeyShooter.gd" id="1_c7o20"]
 [ext_resource type="Texture2D" uid="uid://b6xryrgmcprhi" path="res://Assets/monkey shooter.png" id="2_av5nc"]
@@ -55,6 +55,7 @@ shape = SubResource("RectangleShape2D_do2gu")
 [node name="player_area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_area"]
+visible = false
 shape = SubResource("CapsuleShape2D_8nhhq")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
