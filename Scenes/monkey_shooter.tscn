@@ -57,7 +57,6 @@ shape = SubResource("RectangleShape2D_do2gu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_area"]
 visible = false
 shape = SubResource("CapsuleShape2D_8nhhq")
-debug_color = Color(0, 0.6, 0.701961, 0)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="player_area" to="." method="_on_player_area_body_entered"]
