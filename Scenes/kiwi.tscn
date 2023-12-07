@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://76ahjlvnr0ab"]
+
+[ext_resource type="Script" path="res://Scenes/levels/Kiwi.gd" id="1_cmjsa"]
+[ext_resource type="Texture2D" uid="uid://dmjd5eea8agcq" path="res://Assets/kiwi_crouch.png" id="2_7pqtr"]
+[ext_resource type="Texture2D" uid="uid://b3j1ppv1n3a3i" path="res://Assets/fruit_kiwi.png" id="3_1qanf"]
+[ext_resource type="Texture2D" uid="uid://b2ut0kmlrnllv" path="res://Assets/kiwi.png" id="4_yucsa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7xpa0"]
+radius = 7.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jyqqm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7pqtr")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1qanf")
+}],
+"loop": true,
+"name": &"kiwi",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_yucsa")
+}],
+"loop": true,
+"name": &"standing",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k84ef"]
+size = Vector2(89.8251, 2539.56)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r3287"]
+radius = 13.5577
+
+[node name="Kiwi" type="CharacterBody2D"]
+scale = Vector2(4, 4)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_cmjsa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7xpa0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jyqqm")
+animation = &"standing"
+
+[node name="Player locator" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player locator"]
+position = Vector2(4, 2)
+rotation = -3.14159
+scale = Vector2(1.66991, -0.841091)
+shape = SubResource("RectangleShape2D_k84ef")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_r3287")
+
+[connection signal="body_entered" from="Player locator" to="." method="_on_player_locator_body_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]

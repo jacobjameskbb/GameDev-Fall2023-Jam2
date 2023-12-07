@@ -310,29 +310,6 @@ bullet_speed = 30
 position = Vector2(245, 319)
 bullet_speed = 30
 
-[node name="Kiwi" type="CharacterBody2D" parent="."]
-position = Vector2(1258, 383)
-scale = Vector2(4, 4)
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("8_s8hva")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kiwi"]
-shape = SubResource("CircleShape2D_ikvlc")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Kiwi"]
-sprite_frames = SubResource("SpriteFrames_2jxdv")
-animation = &"standing"
-
-[node name="Player locator" type="Area2D" parent="Kiwi"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kiwi/Player locator"]
-position = Vector2(4, 2)
-rotation = -3.14159
-scale = Vector2(1.66991, -0.841091)
-shape = SubResource("RectangleShape2D_dirmh")
-debug_color = Color(0, 0.6, 0.701961, 0)
-
 [node name="Kiwi2" type="CharacterBody2D" parent="."]
 position = Vector2(1374, 50)
 scale = Vector2(4, 4)
@@ -454,9 +431,17 @@ position = Vector2(1628, 356)
 [node name="ox2" parent="." instance=ExtResource("12_5nbxp")]
 position = Vector2(710, 261)
 
-[connection signal="body_entered" from="Kiwi/Player locator" to="Kiwi" method="_on_player_locator_body_entered"]
+[node name="oxtiemr" type="Timer" parent="."]
+autostart = true
+
+[node name="kiwitimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
 [connection signal="body_entered" from="Kiwi2/Player locator" to="Kiwi2" method="_on_player_locator_body_entered"]
 [connection signal="body_entered" from="Kiwi3/Player locator" to="Kiwi3" method="_on_player_locator_body_entered"]
 [connection signal="body_entered" from="Kiwi4/Player locator" to="Kiwi4" method="_on_player_locator_body_entered"]
 [connection signal="body_entered" from="Kiwi5/Player locator" to="Kiwi5" method="_on_player_locator_body_entered"]
 [connection signal="body_entered" from="Kiwi6/Player locator" to="Kiwi6" method="_on_player_locator_body_entered"]
+[connection signal="timeout" from="oxtiemr" to="." method="_on_oxtiemr_timeout"]
+[connection signal="timeout" from="kiwitimer" to="." method="_on_kiwitimer_timeout"]
