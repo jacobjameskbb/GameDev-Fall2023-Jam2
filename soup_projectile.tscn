@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://loorfw8ajisy"]
+[gd_scene load_steps=3 format=3 uid="uid://loorfw8ajisy"]
 
 [ext_resource type="Script" path="res://soup_projectile.gd" id="1_ks8gk"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1061i"]
+size = Vector2(96, 96)
+
 [node name="SoupProjectile" type="Node2D"]
 script = ExtResource("1_ks8gk")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_1061i")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

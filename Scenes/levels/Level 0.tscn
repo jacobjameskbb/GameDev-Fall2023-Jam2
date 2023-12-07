@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b2ut0kmlrnllv" path="res://Assets/kiwi.png" id="9_6l6v1"]
 [ext_resource type="Texture2D" uid="uid://dmjd5eea8agcq" path="res://Assets/kiwi_crouch.png" id="9_vlbo6"]
 [ext_resource type="Texture2D" uid="uid://b3j1ppv1n3a3i" path="res://Assets/fruit_kiwi.png" id="10_76ke1"]
-[ext_resource type="PackedScene" uid="uid://bntukd7d8udni" path="res://Scenes/ox.tscn" id="12_5nbxp"]
+[ext_resource type="PackedScene" path="res://Scenes/ox.tscn" id="12_5nbxp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2kjf4"]
 texture = ExtResource("2_kwdhf")
