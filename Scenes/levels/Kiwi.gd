@@ -21,3 +21,14 @@ func jump():
 	$AnimatedSprite2D.animation = 'kiwi'
 	look_at(player.global_position)
 	flying = true
+
+
+func _on_hitbox_body_entered(body):
+	if body.is_in_group("player"):
+		body.die()
+	if body.is_in_group("player_bullet"):
+		self.queue_free()
+
+
+func _on_hitbox_body_exited(body):
+	pass # Replace with function body.
