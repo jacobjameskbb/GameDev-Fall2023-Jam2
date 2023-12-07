@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=3 uid="uid://bntukd7d8udni"]
+
+[ext_resource type="Texture2D" uid="uid://f2kdfb8ui2j5" path="res://Assets/ox1.png" id="1_a8w55"]
+[ext_resource type="Script" path="res://Scripts/ox.gd" id="1_a64g5"]
+[ext_resource type="Texture2D" uid="uid://vd4vunxrm5bn" path="res://Assets/ox3.png" id="2_is7mb"]
+[ext_resource type="Texture2D" uid="uid://bmhxputco5dm1" path="res://Assets/oxdie1.png" id="3_8l4ja"]
+[ext_resource type="Texture2D" uid="uid://b7iqj4g3vcll8" path="res://Assets/ox2.png" id="3_px2vv"]
+[ext_resource type="Texture2D" uid="uid://djcrylrikgxtm" path="res://Assets/oxdie2.png" id="4_03msb"]
+[ext_resource type="Texture2D" uid="uid://brntcybduw7lp" path="res://Assets/oxdie3.png" id="5_cney8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lih24"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_a8w55")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_a8w55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8l4ja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_03msb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cney8")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_a8w55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_is7mb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_px2vv")
+}],
+"loop": false,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mka47"]
+radius = 34.0
+height = 110.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1butv"]
+radius = 384.001
+
+[node name="ox" type="Node2D"]
+script = ExtResource("1_a64g5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_lih24")
+offset = Vector2(-3, -2)
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_mka47")
+
+[node name="player_detect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_detect"]
+shape = SubResource("CircleShape2D_1butv")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="player_detect" to="." method="_on_player_detect_body_entered"]
+[connection signal="body_exited" from="player_detect" to="." method="_on_player_detect_body_exited"]

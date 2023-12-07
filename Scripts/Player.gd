@@ -7,6 +7,9 @@ extends CharacterBody2D
 @export var cooldown = 10
 @onready var cooldown_number = 0
 
+func die():
+	get_tree().reload_current_scene()
+
 func _physics_process(delta):
 	velocity = Vector2.ZERO
 
