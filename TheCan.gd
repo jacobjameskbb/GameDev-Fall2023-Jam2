@@ -23,3 +23,7 @@ func _wait_for_fire_signal():
 	var wait_timer = get_tree().create_timer(3.5)
 	await wait_timer.timeout
 	_fire()
+
+func _process(_delta):
+	if health >= 0:
+		queue_free()
