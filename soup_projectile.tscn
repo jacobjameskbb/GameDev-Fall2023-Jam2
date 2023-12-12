@@ -19,4 +19,6 @@ shape = SubResource("RectangleShape2D_1061i")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_tk8ya")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
